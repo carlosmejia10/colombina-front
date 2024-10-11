@@ -1,7 +1,8 @@
+import {ExpedienteRegulatorio} from './expediente-regulatorio'
 export class Usuario {
     id!:number;
-    creadencial!:string;
-    correo!:string;
-    tipo!:string;
-    contraseña!:string;
+    nombre!:string;
+    rol!:string;
+    correoElectronico!:string;
+    ExpedienteRegulatorio!:ExpedienteRegulatorio;
 }

@@ -24,19 +24,19 @@
                     <ng-container class="pendientes"  *ngIf="mostrarTabla1">
                         <table>
                             <tr *ngFor="let tramite of tramites">
-                              <ng-container *ngIf="tramite.tipo=='a'">
-                                <!--
+                              <ng-container *ngIf="tramite.tipoDeTramite=='a'">
+                             
                                 <td>
-                                  <i *ngIf="tramite.estado" class="estatus hecho"></i>
-                                  <i *ngIf="!tramite.estado" class="estatus pendiente"></i>
+                                  <i *ngIf="tramite.estadoDelTramite" class="estatus hecho"></i>
+                                  <i *ngIf="!tramite.estadoDelTramite" class="estatus pendiente"></i>
                                 </td>
-                                -->
+                                
                                 <td>
                                     <div class="registro">
-                                        <a [routerLink]="['/infoTramite']">{{tramite.titulo}}</a>
-                                        <p>{{tramite.fecha}}</p>
+                                        <a [routerLink]="['/infoTramite']">{{tramite.numeroDeRegistro}}</a>
+                                       
                                     </div>
-                                    <p>{{tramite.mensaje}}</p>
+                                    <p>{{tramite.descripcionDelTramite}}</p>
                                 </td>
                               </ng-container>
                             </tr>
@@ -57,18 +57,18 @@
                     <ng-container class="pendientes" *ngIf="mostrarTabla2">
                       <table>
                         <tr *ngFor="let tramite of tramites">
-                          <ng-container *ngIf="tramite.tipo=='b'">
-                           <!-- <td>
-                              <i *ngIf="tramite.estado" class="estatus hecho"></i>
-                              <i *ngIf="!tramite.estado" class="estatus pendiente"></i>
+                          <ng-container *ngIf="tramite.tipoDeTramite=='b'">
+                            <td>
+                              <i *ngIf="tramite.estadoDelTramite" class="estatus hecho"></i>
+                              <i *ngIf="!tramite.estadoDelTramite" class="estatus pendiente"></i>
                             </td>
-                            -->
+                            
                             <td>
                                 <div class="registro">
-                                    <a [routerLink]="['/infoTramite']">{{tramite.titulo}}</a>
-                                    <p>{{tramite.fecha}}</p>
+                                    <a [routerLink]="['/infoTramite']">{{tramite.numeroDeRegistro}}</a>
+                                    
                                 </div>
-                                <p>{{tramite.mensaje}}</p>
+                                <p>{{tramite.descripcionDelTramite}}</p>
                             </td>
                           </ng-container>
                         </tr>

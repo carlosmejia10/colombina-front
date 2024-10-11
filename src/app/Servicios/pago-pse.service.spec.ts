@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TramiteService } from './tramite.service';
+import { PagoPSEService } from './pago-pse.service';
 
-describe('TramiteService', () => {
-  let service: TramiteService;
+describe('PagoPSEService', () => {
+  let service: PagoPSEService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TramiteService);
+    service = TestBed.inject(PagoPSEService);
   });
 
   it('should be created', () => {

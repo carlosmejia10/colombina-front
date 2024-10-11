@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FechaServiceService } from './fecha-service.service';
+import { SolicitudDEIService } from './solicitud-dei.service';
 
-describe('FechaServiceService', () => {
-  let service: FechaServiceService;
+describe('SolicitudDEIService', () => {
+  let service: SolicitudDEIService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FechaServiceService);
+    service = TestBed.inject(SolicitudDEIService);
   });
 
   it('should be created', () => {

@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Tramite } from "./tramite";
+import { Tramite } from "../Entidades/tramite-regulatorio";
 import { Observable } from "rxjs";
 import { Injectable } from '@angular/core';
 
