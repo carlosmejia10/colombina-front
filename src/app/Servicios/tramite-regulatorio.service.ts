@@ -22,4 +22,8 @@ export class TramiteService{
     addTramite(tramite:Tramite){
         this.http.post("http.//localhost:8080/api/tramites",tramite).subscribe;
     }
+
+    updateTramite(tramite:Tramite){
+        this.http.put("http.//localhost:8080/api/tramites/update",tramite).subscribe;
+    }
 }
