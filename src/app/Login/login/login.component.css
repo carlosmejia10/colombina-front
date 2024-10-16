@@ -133,7 +133,7 @@ input[type=radio]{
     transition-delay: .1s;
 }
 
-label:after {
+.activar label:after {
     content: '';
     position: absolute;
     top: 1px;
@@ -143,8 +143,6 @@ label:after {
     background: #080808;
     border-radius: 21px;
     animation:expand-left .5s linear forwards;
-    
-
 }
 
 input:checked+label {
