@@ -152,19 +152,7 @@ export class estadisticasComponent implements OnInit {
         }
       };
 
-      this.dataTramNacionales = {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
-        datasets: [
-          {
-            label: 'Número trámites nacionales',
-            fill: false,
-            borderColor: documentStyle.getPropertyValue('--blue-500'),
-            yAxisID: 'y',
-            tension: 0.4,
-            data: [65, 59, 80, 81, 56, 55, 10]
-          }
-        ]
-      };
+
 
       //Tramites internacionales
 
