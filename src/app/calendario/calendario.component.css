@@ -1,41 +1,4 @@
 
-.day-cell {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.day-cell span {
-  font-size: 1.2em;
-}
-
-.month-selector {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.month-selector button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.month-selector span {
-  margin: 0 20px;
-  font-size: 1.5em;
-}
-
-.calendar-container {
-  width: 100%;
-  margin: 0 auto;
-}
-
-
-
 
 
 .container {
@@ -67,76 +30,81 @@ h2 {
   border-radius: 10px; /* Bordes redondeados */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   margin-top: 20px; /* Espacio arriba del contenedor */
+  align-content: center;
 }
 
-table {
+
+.calendar-layout {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+  min-height: 600px;
+}
+
+/* Sección del calendario */
+.calendar-section {
+  flex: 1;
+  max-width: 50%;
+}
+
+.calendar-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Sección de eventos */
+.events-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.selected-date-info {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.selected-date-info h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.selected-date {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.events-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-grow: 1;
+  max-height: 100%;
+}
+
+.events-container h4 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.1rem;
+
+}
+
+/* Estilo opcional para el calendario de PrimeNG */
+:host ::ng-deep .p-calendar {
   width: 100%;
-  border-collapse: collapse;
-  border: 2px solid #ccc;
 }
 
-thead th {
-  background-color: #A3B6E6; 
-  color: #fff;
-  padding: 12px;
-  text-align: center;
-  border: 2px solid #ccc;
+:host ::ng-deep .p-datepicker {
+  width: 100%;
 }
 
-tbody td {
-  padding: 12px;
-  text-align: center;
-  border: 1px solid #ccc;
-}
-
-.aprobado {
-  background-color: #002d5e;
-  color: white;
-  padding: 8px 12px;
-  text-align: center;
-  border-radius: 8px;
-}
-
-.rechazado {
-  background-color: #ff6b6b;
-  color: white;
-  padding: 8px 12px;
-  text-align: center;
-  border-radius: 8px;
-}
-
-.pendiente {
-  background-color: #feca57;
-  color: white;
-  padding: 8px 12px;
-  text-align: center;
-  border-radius: 8px;
-}
-
-
-
-/* Media Queries para dispositivos móviles */
-@media (max-width: 768px) {
-  app-lateral {
-    width: 200px; /* Reduce el ancho en pantallas más pequeñas */
-    top: 0; /* Ajusta para que el lateral esté en la parte superior */
-    height: calc(100vh - 50px); /* Ajusta según el alto del header */
-  }
-
-  .contenedor {
-    margin-left: 0; /* Elimina el margen para pantallas pequeñas */
-  }
-}
-
-@media (max-width: 480px) {
-  app-lateral {
-    width: 100%; /* Hace que el lateral ocupe el 100% del ancho en pantallas muy pequeñas */
-    height: auto; /* Ajusta la altura automáticamente */
-    position: relative; /* Cambia la posición a relativa */
-    top: 0; /* Ajusta para que el lateral esté en la parte superior */
-  }
-
-  .contenedor {
-    margin-left: 0; /* Elimina el margen para pantallas pequeñas */
-  }
+:host ::ng-deep .p-datepicker table {
+  margin: 0 auto;
 }

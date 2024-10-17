@@ -1,52 +1,41 @@
 <app-header></app-header>
-
 <div class="container">
   <app-lateral></app-lateral>
-
   <div class="contenedor">
     <app-barra-opc></app-barra-opc>
-
     <div class="main-content">
       <h2>Calendario de Solicitudes</h2>
-
-      <!-- Contenedor para la tabla -->
-      <div class="table-container">
-        <!-- Selección del mes -->
-        <div class="month-selector">
-          <button (click)="prevMonth()">&#8249;</button>
-          <span>{{ nombreMes }} {{ anio }}</span>
-          <button (click)="nextMonth()">&#8250;</button>
+      
+      <div class="calendar-layout">
+        <!-- Sección del calendario -->
+        <div class="calendar-section">
+          <div class="calendar-container">
+            <p-calendar 
+              class="max-w-full" 
+              [(ngModel)]="date" 
+              [inline]="true" 
+              [showWeek]="false"
+              (onSelect)="onDateSelect($event)" 
+            />
+          </div>
         </div>
 
-        <!-- Contenedor del calendario -->
-        <div class="calendar-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Lunes</th>
-                <th>Martes</th>
-                <th>Miércoles</th>
-                <th>Jueves</th>
-                <th>Viernes</th>
-                <th>Sábado</th>
-                <th>Domingo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let semana of calendario">
-                <td *ngFor="let dia of semana">
-                  <div class="day-cell">
-                    <span>{{ dia.numero }}</span>
-                    <div *ngFor="let solicitud of dia.solicitudes" class="solicitud-item">
-                      {{ solicitud.producto }} - {{ solicitud.estado }}
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="events-section">
+          <div class="selected-date-info">
+            <h3>Fecha seleccionada:</h3>
+            <p class="selected-date">{{selectedDate | date:'fullDate':'es-ES'}}</p>
+          </div>
+          
+          <div class="events-container">
+            <h4>Eventos del día</h4>
+            <div class="events-list">
+              <!-- Contenedor los eventos -->
+
+            </div>
+          </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
