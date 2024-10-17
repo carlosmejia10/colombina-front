@@ -4,101 +4,218 @@ import { LateralComponent } from '../Layout/lateral/lateral.component';
 import { HeaderComponent } from '../Layout/header/header.component';
 import { BarraOpcComponent } from '../Layout/barra-opc/barra-opc.component';
 import { Chart, registerables } from 'chart.js';
+import { ChartModule } from 'primeng/chart';
 
 @Component({
   selector: 'app-estadisticas',
   standalone: true,
-  imports: [CommonModule, LateralComponent, HeaderComponent, BarraOpcComponent],
+  imports: [CommonModule, LateralComponent, HeaderComponent, BarraOpcComponent, ChartModule],
   templateUrl: './estadisticas.component.html',
   styleUrls: ['./estadisticas.component.css']
 })
-export class estadisticasComponent {
+export class estadisticasComponent implements OnInit {
+  basicData: any;
+  dataDocumentosDevueltos: any;
+  optionsDocumentosDevueltos: any;
+  basicOptions: any;
+  dataTramNacionales: any;
+  optionsTramNacionales: any;
+  dataTramInter: any;
+  optionsTramInter: any;
+
+
 
   constructor() {
     Chart.register(...registerables);
   }
 
   ngOnInit(): void {
-    this.renderTramitesNacionales();
-    this.renderDocumentosDevueltos();
-    this.renderPaisesTramitesInternacionales();
-    this.renderTramitesNacionalesAnio();
-    this.renderTramitesInternacionalesAnio();
-  }
+    if (typeof window !== 'undefined') {
+      const documentStyle = getComputedStyle(document.documentElement);
+      const textColor = documentStyle.getPropertyValue('--text-color');
+      const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+      const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+      this.basicData = {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
+        datasets: [
+          {
+            label: 'Cantidad de trámites nacionales',
+            data: [540, 325, 702, 620],
+            backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+            borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)'],
+            borderWidth: 1
+          }
+        ]
+      };
 
-  renderTramitesNacionales() {
-    new Chart("tramitesNacionales", {
-      type: 'bar',
-      data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        datasets: [{
-          label: 'Trámites Nacionales',
-          data: [12, 19, 3, 5, 2, 3, 7],
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1
-        }]
-      }
-    });
-  }
+      this.basicOptions = {
+        plugins: {
+          legend: {
+            labels: {
+              color: textColor
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              color: textColorSecondary
+            },
+            grid: {
+              color: surfaceBorder,
+              drawBorder: false
+            }
+          },
+          x: {
+            ticks: {
+              color: textColorSecondary
+            },
+            grid: {
+              color: surfaceBorder,
+              drawBorder: false
+            }
+          }
+        }
+      };
+      // Tramites nacionales
+      this.dataDocumentosDevueltos = {
+        labels: ['Ficha Técnica', 'Formato de solicitud', 'Certificados'],
+        datasets: [
+          {
+            data: [300, 50, 100],
+            backgroundColor: [documentStyle.getPropertyValue('--blue-500'), documentStyle.getPropertyValue('--yellow-500'), documentStyle.getPropertyValue('--green-500')],
+            hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-400'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--green-400')]
+          }
+        ]
+      };
 
-  renderDocumentosDevueltos() {
-    new Chart("documentosDevueltos", {
-      type: 'doughnut',
-      data: {
-        labels: ['Ficha técnica', 'Formato de solicitud', 'Certificados', 'Certificado de aditivos'],
-        datasets: [{
-          label: 'Documentos devueltos',
-          data: [38.4, 22.5, 30.8, 8.1],
-          backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56', '#4BC0C0']
-        }]
-      }
-    });
-  }
 
-  renderPaisesTramitesInternacionales() {
-    new Chart("paisesTramitesInternacionales", {
-      type: 'polarArea',
-      data: {
-        labels: ['Guatemala', 'Perú', 'Ecuador', 'Chile'],
-        datasets: [{
-          label: 'Trámites Internacionales',
-          data: [40, 30, 15, 25],
-          backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
-        }]
-      }
-    });
-  }
+      this.optionsDocumentosDevueltos = {
+        cutout: '50%',
+        plugins: {
+          legend: {
+            labels: {
+              color: textColor
+            }
+          }
+        }
+      };
 
-  renderTramitesNacionalesAnio() {
-    new Chart("tramitesNacionalesAnio", {
-      type: 'line',
-      data: {
-        labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL'],
-        datasets: [{
-          label: 'Trámites Nacionales del Año',
-          data: [10, 20, 30, 40, 35, 45, 50],
-          borderColor: '#FF6384',
-          fill: true,
-          backgroundColor: 'rgba(255,99,132,0.2)'
-        }]
-      }
-    });
-  }
+      //Tramites Nacionales al año
 
-  renderTramitesInternacionalesAnio() {
-    new Chart("tramitesInternacionalesAnio", {
-      type: 'line',
-      data: {
-        labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL'],
-        datasets: [{
-          label: 'Trámites Internacionales del Año',
-          data: [15, 25, 35, 30, 45, 55, 60],
-          borderColor: '#36A2EB',
-          fill: true,
-          backgroundColor: 'rgba(54,162,235,0.2)'
-        }]
-      }
-    });
+      this.dataTramNacionales = {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
+        datasets: [
+          {
+            label: 'Número trámites nacionales',
+            fill: false,
+            borderColor: documentStyle.getPropertyValue('--blue-500'),
+            yAxisID: 'y',
+            tension: 0.4,
+            data: [65, 59, 80, 81, 56, 55, 10]
+          }
+        ]
+      };
+
+      this.optionsTramNacionales = {
+        stacked: false,
+        maintainAspectRatio: false,
+        aspectRatio: 0.6,
+        plugins: {
+          legend: {
+            labels: {
+              color: textColor
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: textColorSecondary
+            },
+            grid: {
+              color: surfaceBorder
+            }
+          },
+          y: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+            ticks: {
+              color: textColorSecondary
+            },
+            grid: {
+              color: surfaceBorder
+            }
+          }
+        }
+      };
+
+      this.dataTramNacionales = {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
+        datasets: [
+          {
+            label: 'Número trámites nacionales',
+            fill: false,
+            borderColor: documentStyle.getPropertyValue('--blue-500'),
+            yAxisID: 'y',
+            tension: 0.4,
+            data: [65, 59, 80, 81, 56, 55, 10]
+          }
+        ]
+      };
+
+      //Tramites internacionales
+
+      this.optionsTramInter = {
+        stacked: false,
+        responsive:true ,
+        maintainAspectRatio: false,
+        aspectRatio: 0.6,
+        plugins: {
+          legend: {
+            labels: {
+              color: textColor
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: textColorSecondary
+            },
+            grid: {
+              color: surfaceBorder
+            }
+          },
+          y: {
+            type: 'linear',
+            display: true,
+            position: 'left',
+            ticks: {
+              color: textColorSecondary
+            },
+            grid: {
+              color: surfaceBorder
+            }
+          }
+        }
+      };
+      this.dataTramInter = {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
+        datasets: [
+          {
+            label: 'Número trámites internacionales',
+            fill: true,
+            borderColor: documentStyle.getPropertyValue('--purple-500'),
+            yAxisID: 'y',
+            tension: 0.4,
+            data: [25, 20, 25, 29, 23, 25, 30]
+          }
+        ]
+      };
+    }
+
   }
 }
