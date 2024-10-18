@@ -24,6 +24,7 @@ import{SolicitudDEI} from'../Entidades/solicitud-dei'
 export class TablaTramiteComponent {
   tramites!:Tramite[];
   tramiteService!: TramiteService;
+  searchTerm: string = '';
   
   mostrarTabla1: boolean = true;
   mostrarTabla2: boolean = true;
@@ -107,6 +108,8 @@ export class TablaTramiteComponent {
   ];
   
   }
+
+  
   getTramites(): void {
     this.tramiteService.findAll().subscribe({
       next: (data) => {
@@ -116,5 +119,18 @@ export class TablaTramiteComponent {
         console.error('Error fetching tramites', err);
       }
     });
+  }
+
+  tramitesMostrados: Tramite[] = [];
+  traites: Tramite[] = [];
+
+  private filterTratamientos() {
+    if (this.searchTerm.trim() === '') {
+      this.tramitesMostrados = this.traites;
+    } else {
+      this.tramitesMostrados = this.traites.filter(tramite =>
+        tramite.numeroDeRegistro
+      );
+    } 
   }
 }
