@@ -3,5 +3,5 @@ export class EntidadSanitaria {
     id!:number;
     nombre!:string;
     pais!:string;
-    tramites!:Tramite[];
+    tramites?:Tramite[];
 }

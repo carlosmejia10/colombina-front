@@ -5,5 +5,5 @@ export class Documento {
     tipo!:string;
     aprobado!:boolean;
     tempUrl!:string;
-    tramite!:Tramite;
+    tramite?:Tramite;
 }

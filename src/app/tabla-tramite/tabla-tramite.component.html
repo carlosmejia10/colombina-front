@@ -67,7 +67,8 @@
                                 <td>
                                     <div class="registro">
                                         <a [routerLink]="['/infoTramite']">{{tramite.numeroRadicado}}</a>
-                                       
+                                        <div class="EstadoText"><h2 >{{tramite.estado}}</h2></div>
+                                    
                                     </div>
                                     <p>{{tramite.fechaRadicacion}}</p>
                                 </td>
@@ -103,8 +104,10 @@
                             <td>
                                 <div class="registro">
                                     <a [routerLink]="['/infoTramite']">{{tramite.numeroRadicado}}</a>
+                                    <div class="EstadoText"><h2 >{{tramite.estado}}</h2></div>
                                     
                                 </div>
+                                
                                 <p>{{tramite.fechaRadicacion}}</p>
 
                             </td>

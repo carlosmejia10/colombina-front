@@ -64,7 +64,14 @@ table td {
     background-color: rgb(26, 187, 26);
     margin-left: 6px;
 }
-
+.EstadoText{
+    padding-left: 600px;
+}
+.EstadoText h2{
+    color: #4E5A7D;
+    font-weight: bold;
+    font-size: 12px;
+}
 .rechazado{
     background-color: red;
     margin-left: 6px;
