@@ -56,12 +56,17 @@ table td {
 }
 
 .pendiente {
-    background-color: red;
+    background-color: rgb(255, 238, 0);
     margin-left: 6px;
 }
 
 .hecho {
-    background-color: green;
+    background-color: rgb(26, 187, 26);
+    margin-left: 6px;
+}
+
+.rechazado{
+    background-color: red;
     margin-left: 6px;
 }
 

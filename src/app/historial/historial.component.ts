@@ -1,5 +1,5 @@
 // historial.component.ts
-import{Tramite} from'../Entidades/tramite-regulatorio';
+import{Tramite} from'../Entidades/tramite';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import{LateralComponent} from'../Layout/lateral/lateral.component'

@@ -15,6 +15,7 @@ import { ChartModule } from 'primeng/chart';
 })
 export class estadisticasComponent implements OnInit {
   basicData: any;
+  basicData2: any;
   dataDocumentosDevueltos: any;
   optionsDocumentosDevueltos: any;
   basicOptions: any;
@@ -35,6 +36,7 @@ export class estadisticasComponent implements OnInit {
       const textColor = documentStyle.getPropertyValue('--text-color');
       const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
       const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+ 
       this.basicData = {
         labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
         datasets: [
@@ -47,6 +49,19 @@ export class estadisticasComponent implements OnInit {
           }
         ]
       };
+      this.basicData2 = {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
+        datasets: [
+          {
+            label: 'Cantidad de trámites Internacionales',
+            data: [300, 320, 500, 620],
+            backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+            borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)'],
+            borderWidth: 1
+          }
+        ]
+      };
+    
 
       this.basicOptions = {
         plugins: {

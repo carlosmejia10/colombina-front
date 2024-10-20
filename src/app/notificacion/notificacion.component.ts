@@ -4,8 +4,9 @@ import{HeaderComponent} from'../Layout/header/header.component'
 import{BarraOpcComponent}from'../Layout/barra-opc/barra-opc.component'
 import { RouterModule } from '@angular/router';
 import { Notificacion } from '../Entidades/notificacion';
-import { Tramite } from '../Entidades/tramite-regulatorio';
+import { Tramite } from '../Entidades/tramite';
 import { CommonModule } from '@angular/common';
+import { Usuario } from '../Entidades/usuario';
 
 @Component({
   selector: 'app-notificacion',
@@ -16,18 +17,16 @@ import { CommonModule } from '@angular/common';
 })
 export class NotificacionComponent {
   notificaciones:Notificacion[]=[{
-    idNotificacion:1,
+    id:1,
     mensaje:"Creacion de tramite",
-    estado:false,
-    tipoNotificacion:"Algo",
-    tramite:new Tramite
+    fecha: new Date('15-08-2023'),
+    destinatario:new Usuario
   },
   {
-    idNotificacion:1,
+    id:1,
     mensaje:"Creacion de tramite",
-    estado:false,
-    tipoNotificacion:"Algo",
-    tramite:new Tramite
+    fecha: new Date('15-08-2023'),
+    destinatario:new Usuario
   }
 ]
 

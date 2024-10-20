@@ -17,15 +17,18 @@
           </div>
         </div>
         <div class="chart">
+          <h3>Trámites Internacionales</h3>
+          <div class="card">
+            <p-chart type="bar" [data]="basicData2" [options]="basicOptions" />
+          </div>
+        </div>
+        <div class="chart">
           <h3>Documentos devueltos</h3>
           <div class="card flex justify-content-center">
             <p-chart type="doughnut" [data]="dataDocumentosDevueltos" [options]="optionsDocumentosDevueltos" />
           </div>
         </div>
-        <div class="chart">
-          <h3>Países con Trámites Internacionales</h3>
-          <!-- Aca agregar el de trámites-->
-        </div>
+        
         <div class="chart">
           <h3>Trámites Nacionales del Año</h3>
           <div class="card flex justify-content-center">
@@ -41,6 +44,10 @@
             <p-chart type="line" [data]="dataTramInter" [options]="optionsTramInter" [style]="{'height': '300px'}"
                />
           </div>
+        </div>
+        <div class="chart">
+          <h3>Países con Trámites Internacionales</h3>
+          <!-- Aca agregar el de trámites-->
         </div>
       </div>
     </div>

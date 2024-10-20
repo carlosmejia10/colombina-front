@@ -1,10 +1,9 @@
-import { Tramite } from "./tramite-regulatorio";
+import { Usuario } from "./usuario";
 
 export class Notificacion {
-    public  idNotificacion!:number;
+    public  id!:number;
     public  mensaje!:String;
-    public  estado!:boolean;
-    public  tipoNotificacion!:String;
-    public  tramite!:Tramite;
+    public  fecha!:Date;
+    public  destinatario!:Usuario;
 
 }

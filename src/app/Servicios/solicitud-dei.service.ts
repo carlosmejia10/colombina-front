@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { SolicitudDEI } from "../Entidades/solicitud-dei";
+import { SolicitudDEI } from "../Entidades/solicitud";
 import { Observable } from "rxjs";
 import { Injectable } from '@angular/core';
 

@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Injectable } from '@angular/core';
-import { SeuimientoDelTramite } from "../Entidades/seuimiento-del-tramite";
+import { SeuimientoDelTramite } from "../Entidades/seguimiento";
 
 @Injectable({
   providedIn: 'root'

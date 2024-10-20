@@ -1,4 +1,4 @@
-import { Tramite } from './tramite-regulatorio';
+import { Tramite } from './tramite';
 
 describe('Tramite', () => {
   it('should create an instance', () => {

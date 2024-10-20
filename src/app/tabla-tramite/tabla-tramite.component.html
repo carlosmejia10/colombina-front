@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header ngSkipHydration></app-header>
    
 
 <div class="container">
         
-    <app-lateral></app-lateral>
+    <app-lateral ngSkipHydration></app-lateral>
     
     <div class="contenedor">
             
@@ -44,7 +44,7 @@
                     <div class="TituloTabla">
                         <h2>Tramites Sanitarios Nacionales</h2>
                         <!-- Botón para desplegar u ocultar la tabla -->
-                        <button href="#" (click)="toggleTabla('tabla1'); $event.preventDefault();" class="Desplegar">
+                        <button href="#" (click)="toggleTabla(); $event.preventDefault();" class="Desplegar">
                             <img src="images/Desplegar.png" class="Desplegable">
                         </button>
                     </div>
@@ -53,19 +53,23 @@
                     <ng-container class="pendientes"  *ngIf="mostrarTabla1">
                         <table>
                             <tr *ngFor="let tramite of tramites">
-                              <ng-container *ngIf="tramite.tipoDeTramite=='a'">
+                              <ng-container *ngIf="tramite.tipoTramite=='A'">
                              
                                 <td>
-                                  <i *ngIf="tramite.estadoDelTramite" class="estatus hecho"></i>
-                                  <i *ngIf="!tramite.estadoDelTramite" class="estatus pendiente"></i>
+                                    
+                                    <i *ngIf="tramite.estado==='APROBADO'" class="estatus hecho"></i>
+                                    <i *ngIf="tramite.estado==='RECHAZADO'" class="estatus rechazado"></i>
+                                    <i *ngIf="tramite.estado==='PENDIENTE'" class="estatus pendiente"></i>
+                                    <i *ngIf="tramite.estado==='EN_REVISION'" class="estatus pendiente"></i>
                                 </td>
+                                  
                                 
                                 <td>
                                     <div class="registro">
-                                        <a [routerLink]="['/infoTramite']">{{tramite.numeroDeRegistro}}</a>
+                                        <a [routerLink]="['/infoTramite']">{{tramite.numeroRadicado}}</a>
                                        
                                     </div>
-                                    <p>{{tramite.descripcionDelTramite}}</p>
+                                    <p>{{tramite.fechaRadicacion}}</p>
                                 </td>
                               </ng-container>
                             </tr>
@@ -78,7 +82,7 @@
                 <div class="ContenedorPendientes" >
                     <div class="TituloTabla">
                         <h2>Tramites Sanitarios Internacionales</h2>
-                        <button href="#" (click)="toggleTabla('tabla2'); $event.preventDefault();" class="Desplegar">
+                        <button href="#" (click)="toggleTabla2(); $event.preventDefault();" class="Desplegar">
                             <img src="images/Desplegar.png" class="Desplegable">
                         </button>
                     </div>
@@ -86,18 +90,23 @@
                     <ng-container class="pendientes" *ngIf="mostrarTabla2">
                       <table>
                         <tr *ngFor="let tramite of tramites">
-                          <ng-container *ngIf="tramite.tipoDeTramite=='b'">
+                          <ng-container *ngIf="tramite.tipoTramite=='B'">
                             <td>
-                              <i *ngIf="tramite.estadoDelTramite" class="estatus hecho"></i>
-                              <i *ngIf="!tramite.estadoDelTramite" class="estatus pendiente"></i>
+                                    
+                                <i *ngIf="tramite.estado==='APROBADO'" class="estatus hecho"></i>
+                                <i *ngIf="tramite.estado==='RECHAZADO'" class="estatus rechazado"></i>
+                                <i *ngIf="tramite.estado==='PENDIENTE'" class="estatus pendiente"></i>
+                                <i *ngIf="tramite.estado==='EN_REVISION'" class="estatus pendiente"></i>
                             </td>
+                              
                             
                             <td>
                                 <div class="registro">
-                                    <a [routerLink]="['/infoTramite']">{{tramite.numeroDeRegistro}}</a>
+                                    <a [routerLink]="['/infoTramite']">{{tramite.numeroRadicado}}</a>
                                     
                                 </div>
-                                <p>{{tramite.descripcionDelTramite}}</p>
+                                <p>{{tramite.fechaRadicacion}}</p>
+
                             </td>
                           </ng-container>
                         </tr>

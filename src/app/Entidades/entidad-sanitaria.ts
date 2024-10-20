@@ -1,8 +1,7 @@
-import {Tramite} from'./tramite-regulatorio'
+import {Tramite} from'./tramite'
 export class EntidadSanitaria {
-    idEntidad!:number;
-    resultadoDelTramite!:boolean;
-    fechaDeRadicacion!:Date;
-    comentarios!:string;
-    tramiteRegulatorio!:Tramite;
+    id!:number;
+    nombre!:string;
+    pais!:string;
+    tramites!:Tramite[];
 }

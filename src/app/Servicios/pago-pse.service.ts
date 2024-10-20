@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Injectable } from '@angular/core';
-import { PagoPSE } from "../Entidades/pago-pse";
+import { PagoPSE } from "../Entidades/pago";
 
 @Injectable({
   providedIn: 'root'
