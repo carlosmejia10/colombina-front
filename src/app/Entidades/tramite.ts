@@ -37,8 +37,8 @@ export class Tramite {
     this.id = id;
     this.numeroRadicado = numeroRadicado;
     this.estado = estado;
-    this.fechaRespuesta =fechaRespuesta,
-    this.fechaRadicacion = fechaRadicacion;
+    this.fechaRadicacion = this.normalizeDate(fechaRadicacion);
+    this.fechaRespuesta = this.normalizeDate(fechaRespuesta);
     this.entidadSanitaria = entidadSanitaria;
     this.documentos = documentos;
     this.pagos = pagos;
@@ -46,6 +46,13 @@ export class Tramite {
     this.historialCambios = historialCambios;
     this.solicitud = solicitud;
     this.tipoTramite = tipoTramite;
+  }
+
+  // Normalizar la fecha para evitar el problema de zona horaria
+  private normalizeDate(date: Date): Date {
+    const normalizedDate = new Date(date);
+    normalizedDate.setHours(0, 0, 0, 0); // Establecer la hora en medianoche
+    return normalizedDate;
   }
 }
 

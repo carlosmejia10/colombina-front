@@ -1,3 +1,14 @@
+/* Poner un punto en los días que tienen eventos */
+.ui-datepicker-calendar td a.event-day::after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: red; /* Color del punto */
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 3px;
+}
 
 
 
