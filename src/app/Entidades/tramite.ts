@@ -11,6 +11,7 @@ export class Tramite {
   numeroRadicado: string;
   estado: EstadoTramite;
   fechaRadicacion: Date;
+  fechaRespuesta: Date;
   entidadSanitaria?: EntidadSanitaria;
   documentos?: Documento[];
   pagos: Pago[];
@@ -24,6 +25,7 @@ export class Tramite {
     numeroRadicado: string,
     estado: EstadoTramite,
     fechaRadicacion: Date,
+    fechaRespuesta: Date,
     entidadSanitaria: EntidadSanitaria,
     documentos: Documento[],
     pagos: Pago[],
@@ -35,6 +37,7 @@ export class Tramite {
     this.id = id;
     this.numeroRadicado = numeroRadicado;
     this.estado = estado;
+    this.fechaRespuesta =fechaRespuesta,
     this.fechaRadicacion = fechaRadicacion;
     this.entidadSanitaria = entidadSanitaria;
     this.documentos = documentos;
